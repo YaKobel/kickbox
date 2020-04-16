@@ -1,0 +1,31 @@
+{% extends 'blog/main.html' %}
+{% load crispy_forms_tags %}
+{% block main_section %}
+    <div class="form-section">
+        <h2>Кабинет пользователя</h2>
+        <div class="media text-muted pt-3">
+            <img class="mr-2 rounded" style="width:64px; height: 64px;" src="{{ user.profile.img.url }}">
+            <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <strong class="d-block text-gray-dark">@{{ user.username }}</strong>
+                <b>Email:</b> {{ user.email }}
+            </p>
+        </div>
+        <h3 class="mt-4">Изменить данные про пользователя</h3>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ update_user|crispy }}
+            {{ img_profile|crispy }}
+            <button type="submit" class="btn btn-outline-warning">Обновить данные</button>
+        </form>
+    </div>
+{% endblock main_section %}
+
+{% block aside_news_section %}
+    <h3><b>Юнайтед, 2011</b></h3>
+    <img src="https://womo.ua/wp-content/uploads/2016/06/7378.jpg" class="img-thumbnail md-1">
+    <p> В 1958 году мир потрясла страшная новость: в авиакатастрофе в Германии погибли члены легендарной футбольной команды «Манчестер Юнайтед». Им прочили фантастическое будущее, но все перечеркнула авиакатастрофа, случившаяся в аэропорту Мюнхена. Режиссер Джеймс Стронг не показывает нам документально всех подробностей самой катастрофы, а рассказывает историю о том, как по крупицам возрождался ныне великий футбольный клуб. «Юнайтед. Мюнхенская трагедия» — это не просто фильм о футболе, это фильм о духе, который не сломать.
+    </p>
+    <a href="https://womo.ua/12-horoshih-filmov-o-sporte-i-zhizni-chempionov/" target="_blank">
+        <button class="btn btn-warning">Посмотреть</button>
+    </a>
+{% endblock aside_news_section %}
