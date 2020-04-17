@@ -6,4 +6,4 @@
 
 > https://yakobel.github.io/kickbox/blog/templates/blog
 
-> https://yakobel.github.io/kickbox/blog/templates/blog/home.html
+> https://yakobel.github.io/kickbox/blog/templates/blog/main.html
